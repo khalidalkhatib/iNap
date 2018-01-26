@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="linkfortimer.js"></script>
+<script type="text/javascript" src="TimeCircles.js"></script>
+<link href="TimeCircles.css" rel="stylesheet">  
+<link rel="stylesheet" href="jquery.mobile-1.4.4.min.css" type="text/css" />
+<script src="jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="example stopwatch" data-timer="900"></div> <button class="btn btn-success start">Start</button> <button class="btn btn-success start">Stop</button>
+
+<script type="text/javascript"> $(".example").TimeCircles(); $(".stop").click(function(){ $(".example.stopwatch").TimeCircles().stop(); }); $(".start").click(function(){ $(".example.stopwatch").TimeCircles().start(); }); </script>
+
+</body>
+</html>

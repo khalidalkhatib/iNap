@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="jquery.mobile-1.4.4.min.css" type="text/css"/>
+<link rel="stylesheet" href="themes/whitetheme.min.css"/>
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css"/>
+<script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div align="center" data-role="page" id="setR"> 
+<div data-role="header"> Recovery</div>
+
+<div data-role="content">
+	<p>When you have had a rough night of sleep and did not get the shut eye you need, take a recovery nap. Do not risk sleeping on the job or sleeping in class, which could cost you your job or grade, this nap helps you recovery for the previous night of poor sleep. (90 - 120 min. = Goes over all negative stages of naps, clears mind, improves memory recall, recovers lost sleep)</p>
+
+<section id="main">
+    <form onsubmit="javascript:storeSettings()">
+    <label><h1> <b>Set Time</b> </h1></label>
+    <select name="selectchoice2" id="time2">
+    <option value="5400">90</option>
+    <option value="6300">105</option>
+    <option value="7200">120</option>
+<input type="submit" value="Continue">
+	</form>
+</section>
+
+ <script type="text/javascript">
+function storeSettings() {
+  if ('localStorage' in window && 
+  window['localStorage'] !== null) {
+  try { var time2 = $('#time2').val();
+  localStorage.setItem('time2', time2);
+  location.href = 'ESetup.html';
+  } catch (e) { alert('An error occured');
+  }
+  } else {
+  alert('Sorry, your browser must have localStorage support');
+  } }
+</script>
+
+</div>
+</div>
+
+</body>
+</html>

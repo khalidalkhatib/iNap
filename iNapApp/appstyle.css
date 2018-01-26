@@ -1,0 +1,24 @@
+body {background-color: #876d76;}
+#setEA {margin: auto; width: 300px; right: 0px;} 
+#setR {margin: auto; width: 300px; right: 0px} 
+#setE {margin: auto; width: 300px; right: 0px} 
+#welcome {margin: auto; width: 300px; right: 0px} 
+#pic {width: 129px; height: 128px;} {margin: auto; width: 300px; right: 0px} 
+#home {margin: auto; width: 300px; right: 0px} 
+#homewords {text-align: center;}
+#tr {vertical-align: center;}
+#backhome { padding-top: 10px;
+    padding-left: 10px;}
+#sound { padding-top: 10px;
+    padding-right: 10px;}
+#emergancypage {background-color: #876d76}
+ 
+#finished {}
+
+#endbutton {}
+
+#endmessage {text-align: center; vertical-align: center;  font-family: verdana; font-size: 30pt}
+
+
+#soundbutton {padding-top: 10px;
+    padding-right: 10px; }

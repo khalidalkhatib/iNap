@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="themes/whitetheme.min.css"/>
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css"/>
+<script type="text/javascript" src="linkfortimer.js"></script>
+<script type="text/javascript" src="TimeCircles.js"></script>
+<link href="TimeCircles.css" rel="stylesheet">  
+<link rel="stylesheet" type="text/css" href="appstyle.css">
+<link rel="stylesheet" href="jquery.mobile-1.4.4.min.css" type="text/css"/>
+<script src="jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+<script type="text/javascript" href="jqueryui-1.11.4.js"></script>
+</head>
+
+<body>
+    <div data-role="page" data-theme="b">
+<div id="timerDiv3">
+    <a href="home.html" rel="external"><img src="delete-white.png" id="backhome"></a> <a href="music"><img src="audio-black.png" align="right" id="sound"></a> 
+    <span id="setUptimer3"></span>
+    <button class="btn btn-success startTimer">Start Timer</button>
+    <button class="btn btn-danger stopTimer">Stop Timer</button>
+</div>
+
+<div id="finished" title="Basic dialog" data-role="popup" data-transition="pop" data-rel="dialog">
+  <p> Nap Time Over! Time To Be Great!</p>
+  <a href="home.html" rel="external"><button> End </button></a>
+</div>
+
+<script type="text/javascript">$(".example").TimeCircles(); $(".example").TimeCircles({start: false});</script>
+
+<script type="text/javascript">
+$(function() {
+ var theTime = localStorage.getItem('time3');
+
+$("#setUptimer3").html('<div class="example" id="timer3" data-timer="'+theTime+'"></div>');
+
+});
+	$(".startTimer").click(function() {
+                $("#timer3").TimeCircles().start();
+            });
+            $(".stopTimer").click(function() {
+                $("#timer3").TimeCircles().stop();
+            });
+
+            setInterval(function(){ 
+var timeleft = $(".example").TimeCircles().getTime();
+
+if(timeleft<1) {
+
+ $("#timer3").TimeCircles().stop();
+	playSound();
+	$("#timerDiv3").remove();
+	$("#finished").popup("open");
+
+}
+}, 500);
+
+     function playSound() {
+
+        var audio = new Audio('Beach and Waves Playa y Olas.mp3'); audio.play();
+}
+</script>
+
+
+
+<!-->
+<ul id="nav">
+	<li><a href="#" rel="themes/whitetheme.min.css">Light</a></li>
+	<li><a href="#" rel="themes2/darktheme.min.css">Dark</a></li>
+</ul>
+
+<script type="text/javascript">
+$(document).ready(function() { 
+	$("#nav li a").click(function() { 
+		$("link").attr("href",$(this).attr('rel'));
+		return false;
+	});
+});
+</script>
+<!-->
+</div>
+</body>
+</html>

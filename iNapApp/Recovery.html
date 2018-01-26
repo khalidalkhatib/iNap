@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="themes/whitetheme.min.css"/>
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css"/>
+<script type="text/javascript" src="linkfortimer.js"></script>
+<script type="text/javascript" src="TimeCirclesRecovery.js"></script>
+<link href="TimeCircles.css" rel="stylesheet">  
+<link rel="stylesheet" type="text/css" href="appstyle.css">
+<link rel="stylesheet" href="jquery.mobile-1.4.4.min.css" type="text/css" />
+<script src="jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div data-role="page" data-theme="b">
+<div id="timerDiv2">
+<a href="#exit" data-rel="popup" data-position-to="window" data-transition="pop"><img src="delete-white.png" id="backhome"></a> 
+<div data-role="popup" id="exit" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+  <div role="main" class="ui-content">
+<a href="home.html" rel="external" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-transition="flow">Exit</a>
+<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Back to Nap</a>
+  </div>
+  </div>
+ <!-- <a href="music"><img src="audio-white.png" align="right" id="sound"></a> -->
+	<span id="setUptimer2"></span>
+	<button class="btn btn-success startTimer">Start Timer</button>
+	<button class="btn btn-danger stopTimer">Stop Timer</button>
+</div>
+
+<div id="finished" data-role="popup" data-transition="pop"  data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;" data-rel="dialog">
+  <div data-role="" class="ui-content">
+  <p id="endmessage"> Nap Time Over! Time To Be Great!</p>
+</div>
+<div data-role="main" class="ui-content">
+  <a href="home.html" rel="external" id="endbutton" class="ui-btn">End</a>
+</div>
+</div>
+
+<script type="text/javascript">$(".example").TimeCircles(); $(".example").TimeCircles({start: false});</script>
+
+<script type="text/javascript">
+$(function() {
+ var theTime = localStorage.getItem('time2');
+
+$("#setUptimer2").html('<div class="example" id="timer2" data-timer="'+theTime+'"></div>');
+
+});
+  $(".startTimer").click(function() {
+                $("#timer2").TimeCircles().start();
+            });
+            $(".stopTimer").click(function() {
+                $("#timer2").TimeCircles().stop();
+            });
+
+       var myVar =     setInterval(function(){ 
+var timeleft = $(".example").TimeCircles().getTime();
+
+if(timeleft<1) {
+
+ $("#timer2").TimeCircles().stop();
+  playSound();
+
+  $("#finished").popup("open");
+clearInterval(myVar);
+}
+}, 500);
+
+     function playSound() {
+
+        var audio = new Audio('Alarm.mp3'); 
+        audio.play();
+}
+</script>
+</body>
+</html>
